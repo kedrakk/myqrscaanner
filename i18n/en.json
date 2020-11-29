@@ -1,0 +1,22 @@
+{
+    "welcome":"welcome",
+    "historylist":"History List",
+    "record":"record",
+    "nohistory":"No history",
+    "fromqr":"From QR",
+    "toqr":"To QR",
+    "history":"History",
+    "changelanguage":"change language",
+    "changetheme":"Change App Theme",
+    "aboutus":"About Us",
+    "confirmation":"Confirmation",
+    "areyousure":"Are you sure to take screen shot?",
+    "ok":"OK",
+    "cancel":"Cancel",
+    "entertext":"Enter text",
+    "qrorbarcode":"qr text or barcode text",
+    "select":"Select",
+    "unidentifiedqr":"Unidentified qr!!Try again",
+    "openinbrowser":"Open in browser?",
+    "scannow":"Scan Now"
+}

@@ -1,0 +1,94 @@
+{
+  "name": "MyqrApp",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "eabb1a194101764c584084deccf1118a",
+      "css": "moon",
+      "code": 61830,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "aa035df0908c4665c269b7b09a5596f3",
+      "css": "sun",
+      "code": 61829,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a66c73ed80687952bfb9640830554a0c",
+      "css": "qrcode",
+      "code": 61481,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "7c1b3f1526b57c4ff825ae9979aaae5f",
+      "css": "barcode",
+      "code": 61482,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "862d4faacb164c0412cb3249d43d5d39",
+      "css": "t-shirt",
+      "code": 59392,
+      "src": "linecons"
+    },
+    {
+      "uid": "ba3310d4a6d1084e024afe9a1e858e49",
+      "css": "history",
+      "code": 59491,
+      "src": "linearicons"
+    },
+    {
+      "uid": "6364d85e960f23b9a843a506387e7970",
+      "css": "info-outline",
+      "code": 59393,
+      "src": "typicons"
+    },
+    {
+      "uid": "f6003af1ac0b62b29827d815e4eb3b48",
+      "css": "ekicon",
+      "code": 59392,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "",
+        "width": 1000
+      },
+      "search": [
+        "ekicon"
+      ]
+    },
+    {
+      "uid": "6b8cbc5cb5954c9c9fbc3f399f5043be",
+      "css": "ekicon",
+      "code": 59393,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "",
+        "width": 1000
+      },
+      "search": [
+        "ekicon"
+      ]
+    },
+    {
+      "uid": "660209db4c1e0a079409ee269c086663",
+      "css": "ekicon",
+      "code": 59394,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "",
+        "width": 1000
+      },
+      "search": [
+        "ekicon"
+      ]
+    }
+  ]
+}

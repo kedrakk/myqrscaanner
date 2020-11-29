@@ -1,0 +1,22 @@
+{
+    "welcome":"ကြိုဆိုပါတယ်",
+    "historylist":"ယခင်စာရင်း",
+    "record":"မှတ်တမ်းများ",
+    "nohistory":"ယခင်စာရင်းမရှိပါ",
+    "fromqr":"QR မှ",
+    "toqr":"QR သို့",
+    "history":"သမိုင်း",
+    "changelanguage":"ဘာသာစကားပြောင်းပါ",
+    "changetheme":"App Theme ကိုပြောင်းပါ",
+    "aboutus":"အကြောင်း",
+    "confirmation":"အတည်ပြုခြင်း",
+    "areyousure":"စခရင်ရိုက်ကူးဖို့သေချာလား?",
+    "ok":"ဟုတ်တယ်",
+    "cancel":"ပယ်ဖျက်",
+    "entertext":"စာသားထည့်ပါ",
+    "qrorbarcode":"qr စာသားသို့မဟုတ်ဘားကုတ်စာသား",
+    "select":"ရွေးချယ်ပါ",
+    "unidentifiedqr":"အမည်မသိ qr !! ထပ်မံကြိုးစားပါ",
+    "openinbrowser":"ဘရောင်ဇာကိုဖွင့်ပါသလား",
+    "scannow":"ယခု Scan လုပ်ပါ"
+}
