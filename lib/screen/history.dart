@@ -41,13 +41,13 @@ class _HistoryScreenState extends State<HistoryScreen> {
           Container(
             margin: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: <Widget>[
-              Text(AppLocalizations.of(context).translate("historylist")),
-              Text(qrHistoryList.length.toString()+" "+AppLocalizations.of(context).translate("record"))
+              Text(AppLocalizations.of(context)!.translate("historylist")!),
+              Text(qrHistoryList.length.toString()+" "+AppLocalizations.of(context)!.translate("record")!)
             ],),
           ),
           _imageSection(),
         ],
-      ):Text(AppLocalizations.of(context).translate("nohistory"))),      
+      ):Text(AppLocalizations.of(context)!.translate("nohistory")!)),      
     );
   }
 
@@ -64,7 +64,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
               color: MyColors.whiteColor,
               child: ListTile(
                 leading: CircleAvatar(radius: 15,child: Text(qrHistoryList[index].id.toString()),),
-                title: Text(qrHistoryList[index].name,style: TextStyle(color: MyColors.blackColor),overflow: TextOverflow.ellipsis,maxLines: 2,),
+                title: Text(qrHistoryList[index].name!,style: TextStyle(color: MyColors.blackColor),overflow: TextOverflow.ellipsis,maxLines: 2,),
               ),
             );
           },

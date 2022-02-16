@@ -11,8 +11,8 @@ class MyThemeData{
       accentColor: MyColors.primaryColor,
       primaryIconTheme: IconThemeData(color: MyColors.whiteColor,size: 16),
       accentIconTheme: IconThemeData(color: MyColors.whiteColor,size: 16),
-      textTheme: TextTheme(body1: TextStyle(color: MyColors.blackColor)),
-      appBarTheme: AppBarTheme(textTheme: TextTheme(title: TextStyle(color: MyColors.whiteColor))),
+      // textTheme: TextTheme(body1: TextStyle(color: MyColors.blackColor)),
+      // appBarTheme: AppBarTheme(textTheme: TextTheme(title: TextStyle(color: MyColors.whiteColor))),
     );  
   }
 
@@ -24,8 +24,8 @@ class MyThemeData{
       accentColor: MyColors.yellowColor,
       primaryIconTheme: IconThemeData(color: MyColors.whiteColor,size: 16),
       accentIconTheme: IconThemeData(color: MyColors.whiteColor,size: 16),
-      textTheme: TextTheme(body1: TextStyle(color: MyColors.whiteColor)),
-      appBarTheme: AppBarTheme(textTheme: TextTheme(title: TextStyle(color: MyColors.whiteColor))),
+      // textTheme: TextTheme(body1: TextStyle(color: MyColors.whiteColor)),
+      // appBarTheme: AppBarTheme(textTheme: TextTheme(title: TextStyle(color: MyColors.whiteColor))),
     );  
   }
 

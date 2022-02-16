@@ -14,11 +14,11 @@ part 'main.g.dart';
 @HiveType(typeId: 1)
 class QrHistory {
   @HiveField(0)
-  int id;
+  int? id;
   @HiveField(1)
-  String name;
+  String? name;
   @HiveField(2)
-  String processingDate;
+  String? processingDate;
 }
 
 void main() async{

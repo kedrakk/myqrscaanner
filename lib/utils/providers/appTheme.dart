@@ -3,7 +3,7 @@ import 'package:myqrscanner/utils/designUtils/baseTheme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class QRAppTheme extends ChangeNotifier{
-  ThemeData _currentTheme;
+  ThemeData? _currentTheme;
 
   QRAppTheme(){
     fetchTheme();

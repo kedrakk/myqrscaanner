@@ -3,8 +3,8 @@ import 'package:myqrscanner/utils/providers/appLocalizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppLanguage extends ChangeNotifier {
-  Locale _appLocale ;
-  AppLocalizations localizations;
+  Locale? _appLocale ;
+  AppLocalizations? localizations;
 
   Locale get appLocal => _appLocale ?? Locale("en");
   fetchLocale() async {
@@ -13,9 +13,9 @@ class AppLanguage extends ChangeNotifier {
       _appLocale = Locale('en');
       return Null;
     }
-    _appLocale = Locale(prefs.getString('language_code'));
+    _appLocale = Locale(prefs.getString('language_code')!);
    // localizations.locale=_appLocale;
-    print(_appLocale.languageCode);
+    print(_appLocale!.languageCode);
     return Null;
   }
 

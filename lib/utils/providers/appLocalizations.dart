@@ -7,17 +7,17 @@ class AppLocalizations {
   Locale locale;
 
   AppLocalizations(this.locale);
-  static AppLocalizations of(BuildContext context) {
+  static AppLocalizations? of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
   static const LocalizationsDelegate<AppLocalizations> delegate =
   _AppLocalizationsDelegate();
 
-  Map<String, String> _localizedStrings;
+  late Map<String, String> _localizedStrings;
 
   Future<bool> load() async {
     var prefs = await SharedPreferences.getInstance();
-    locale=prefs.getString("language_code")==null?Locale('en'):Locale(prefs.getString("language_code"));
+    locale=prefs.getString("language_code")==null?Locale('en'):Locale(prefs.getString("language_code")!);
     String jsonString = await rootBundle.loadString('i18n/${locale.languageCode}.json');
     Map<String, dynamic> jsonMap = json.decode(jsonString);
     _localizedStrings = jsonMap.map((key, value) {
@@ -25,7 +25,7 @@ class AppLocalizations {
     });
     return true;
   }
-  String translate(String key) {
+  String? translate(String key) {
     return _localizedStrings[key];
   }
 }

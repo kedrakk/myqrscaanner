@@ -18,9 +18,9 @@ class QRToPhotoScreen extends StatefulWidget {
 
 class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
 
-  String result="";String tempres="";
+  String? result="";String tempres="";
   String type="";
-  File _image;ImagePicker _imagePicker=ImagePicker();
+  File? _image;ImagePicker _imagePicker=ImagePicker();
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
    showDialog(context: context,
     builder: (context){
       return AlertDialog(
-        title: Text(AppLocalizations.of(context).translate("select")),
+        title: Text(AppLocalizations.of(context)!.translate("select")!),
         content: Container(
           width: MediaQuery.of(context).size.width,
           child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,children: <Widget>[
@@ -77,12 +77,12 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
   }
 
   getScanType()async{
-    FirebaseVisionImage visionImage=FirebaseVisionImage.fromFile(_image);
+    FirebaseVisionImage visionImage=FirebaseVisionImage.fromFile(_image!);
     final BarcodeDetector barcodeDetector =FirebaseVision.instance.barcodeDetector();
     final List<Barcode> barcodes =await barcodeDetector.detectInImage(visionImage);
     if(barcodes.length>0){
       for (Barcode barcode in barcodes) {
-        final String rawValue = barcode.rawValue;
+        final String? rawValue = barcode.rawValue;
         setState(() {
           result=rawValue;
         });
@@ -95,19 +95,19 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
       });
     }
     barcodeDetector.close();
-    if(result.contains("http")){
+    if(result!.contains("http")){
       confirmLaunch();
     }
   }
 
   scanWithScanner()async{
-    String scanResult=await scanner.scan();
+    String? scanResult=await scanner.scan();
     result=scanResult;
     setState(() {
       
     });
     storeInBox();
-    if(result.contains("http")){
+    if(result!.contains("http")){
       confirmLaunch();
     }
   }
@@ -126,20 +126,20 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
     showDialog(context: context,
       builder: (context){
         return AlertDialog(
-          title: Text(result),
-          content: Text(AppLocalizations.of(context).translate("openinbrowser")),
+          title: Text(result!),
+          content: Text(AppLocalizations.of(context)!.translate("openinbrowser")!),
           actions: <Widget>[
             FlatButton(
-              child: Text(AppLocalizations.of(context).translate("cancel")),
+              child: Text(AppLocalizations.of(context)!.translate("cancel")!),
               onPressed: (){
                 Navigator.pop(context);
               },
             ),
             FlatButton(
-              child: Text(AppLocalizations.of(context).translate("ok")),
+              child: Text(AppLocalizations.of(context)!.translate("ok")!),
               onPressed: (){
                 Navigator.pop(context);
-                _launchURL(result);
+                _launchURL(result!);
               },
             ),
           ],
@@ -158,7 +158,7 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_){
+    WidgetsBinding.instance!.addPostFrameCallback((_){
       if((result==""||result==null)&&_image==null&&tempres==""){
         autoScan();
       }
@@ -166,7 +166,7 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
     return Scaffold(
       body:Container(
         child: result==""||result==null?
-        Center(child: Text(AppLocalizations.of(context).translate("scannow"),style: TextStyle(fontSize: 18),)):
+        Center(child: Text(AppLocalizations.of(context)!.translate("scannow")!,style: TextStyle(fontSize: 18),)):
         SingleChildScrollView(
           child: Container(
             child:Column(children: <Widget>[
@@ -179,7 +179,7 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
         backgroundColor: MyColors.primaryColor,
         foregroundColor: MyColors.whiteColor,
         onPressed: ()=>autoScan(),
-        tooltip: AppLocalizations.of(context).translate("scannow"),
+        tooltip: AppLocalizations.of(context)!.translate("scannow"),
         child: Icon(MyqrApp.qrcode,),
       ),
     );
@@ -193,7 +193,7 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
           qrImageSection(),
           Container(
             margin: EdgeInsets.only(top:20,bottom:10,left: 10,right: 10),
-            child: Text(result=="Unidentified qr!!Try again"?AppLocalizations.of(context).translate("unidentifiedqr"):result,
+            child: Text(result=="Unidentified qr!!Try again"?AppLocalizations.of(context)!.translate("unidentifiedqr")!:result!,
             style: TextStyle(fontSize: 17),textAlign: TextAlign.center,)
           ),
         ],
@@ -209,7 +209,7 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
           width: MediaQuery.of(context).size.width*5/6,
           height: MediaQuery.of(context).size.height*1/2,
           decoration: BoxDecoration(
-            image: DecorationImage(image: FileImage(_image))
+            image: DecorationImage(image: FileImage(_image!))
           ),
         ),
       ):
@@ -219,7 +219,7 @@ class _QRToPhotoScreenState extends State<QRToPhotoScreen> {
           padding: EdgeInsets.all(6),
           child: QrImage(
             foregroundColor: MyColors.primaryColor,
-            data: result,
+            data: result!,
             version: QrVersions.auto,
             gapless: true,
             size: 250.0,

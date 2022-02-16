@@ -1,6 +1,7 @@
+import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:barcode_flutter/barcode_flutter.dart';
+// import 'package:barcode_flutter/barcode_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:myqrscanner/utils/designUtils/myColors.dart';
@@ -54,14 +55,14 @@ class _PhotoToQRScreenState extends State<PhotoToQRScreen> {
     showDialog(context: context,
       builder: (context){
         return AlertDialog(
-          title: Text(AppLocalizations.of(context).translate("confirmation")),
-          content: Text(AppLocalizations.of(context).translate("areyousure")),
+          title: Text(AppLocalizations.of(context)!.translate("confirmation")!),
+          content: Text(AppLocalizations.of(context)!.translate("areyousure")!),
           actions: <Widget>[
-            FlatButton(child: Text(AppLocalizations.of(context).translate("ok")),onPressed: (){
+            FlatButton(child: Text(AppLocalizations.of(context)!.translate("ok")!),onPressed: (){
               Navigator.pop(context);
               takeScreenShot();
             },),
-            FlatButton(child: Text(AppLocalizations.of(context).translate("cancel")),onPressed: (){
+            FlatButton(child: Text(AppLocalizations.of(context)!.translate("cancel")!),onPressed: (){
               Navigator.pop(context);
             },)
           ],
@@ -71,10 +72,10 @@ class _PhotoToQRScreenState extends State<PhotoToQRScreen> {
   }
 
   takeScreenShot()async{
-    RenderRepaintBoundary boundary = previewContainer.currentContext.findRenderObject();
+    RenderRepaintBoundary boundary = previewContainer.currentContext!.findRenderObject() as RenderRepaintBoundary;
     ui.Image image = await boundary.toImage();
     final directory = (await getApplicationDocumentsDirectory()).path;
-    ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+    ByteData byteData = await (image.toByteData(format: ui.ImageByteFormat.png) as FutureOr<ByteData>);
     Uint8List pngBytes = byteData.buffer.asUint8List();
     print(pngBytes);
     File imgFile =new File('$directory/screenshot.png');
@@ -108,9 +109,9 @@ class _PhotoToQRScreenState extends State<PhotoToQRScreen> {
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: MyColors.primaryColor)
           ),
-          hintText: AppLocalizations.of(context).translate("entertext"),
+          hintText: AppLocalizations.of(context)!.translate("entertext"),
           hintStyle: TextStyle(fontSize: 14),
-          labelText: AppLocalizations.of(context).translate("qrorbarcode"),
+          labelText: AppLocalizations.of(context)!.translate("qrorbarcode"),
           labelStyle: TextStyle(fontSize: 11)
         ),
         onFieldSubmitted: (text){
@@ -124,7 +125,7 @@ class _PhotoToQRScreenState extends State<PhotoToQRScreen> {
     showDialog(context: context,
       builder: (context){
         return AlertDialog(
-          title: Text(AppLocalizations.of(context).translate("select")),
+          title: Text(AppLocalizations.of(context)!.translate("select")!),
           content: Container(
             width: MediaQuery.of(context).size.width,
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -188,21 +189,21 @@ class _PhotoToQRScreenState extends State<PhotoToQRScreen> {
             margin: EdgeInsets.symmetric(horizontal: 5),
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.all(10),
-            child:BarCodeImage(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              foregroundColor: MyColors.primaryColor,
-              backgroundColor: MyColors.whiteColor,
-              params: Code39BarCodeParams(
-                qrText.text,
-                withText: true,
-                lineWidth: 2,
-                barHeight: 130.0,
-                altText: qrText.text
-              ),
-              onError: (error) {               // Error handler
-                print('error = $error');
-              },
-            ),
+            // child:BarCodeImage(
+            //   padding: EdgeInsets.symmetric(horizontal: 5),
+            //   foregroundColor: MyColors.primaryColor,
+            //   backgroundColor: MyColors.whiteColor,
+            //   params: Code39BarCodeParams(
+            //     qrText.text,
+            //     withText: true,
+            //     lineWidth: 2,
+            //     barHeight: 130.0,
+            //     altText: qrText.text
+            //   ),
+            //   onError: (error) {               // Error handler
+            //     print('error = $error');
+            //   },
+            // ),
           ),
         ),
       ):Container()

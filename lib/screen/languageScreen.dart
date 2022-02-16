@@ -6,7 +6,7 @@ import 'package:myqrscanner/utils/providers/appLocalizations.dart';
 import 'package:provider/provider.dart';
 
 class ChangeLanguageScreen extends StatefulWidget {
-  final String lng;
+  final String? lng;
   ChangeLanguageScreen({this.lng}):super();
   @override
   _ChangeLanguageScreenState createState() => _ChangeLanguageScreenState();
@@ -14,7 +14,7 @@ class ChangeLanguageScreen extends StatefulWidget {
 
 class _ChangeLanguageScreenState extends State<ChangeLanguageScreen> {
 
-  String lng="";
+  String? lng="";
 
   @override
   void initState() {
@@ -42,7 +42,7 @@ class _ChangeLanguageScreenState extends State<ChangeLanguageScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context).translate("changelanguage")),elevation: 0.7,),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.translate("changelanguage")!),elevation: 0.7,),
       body: SafeArea(
         child: Container(
           child: Column(children: <Widget>[

@@ -14,7 +14,7 @@ class MyDrawerPage extends StatefulWidget {
 }
 
 class _MyDrawerPageState extends State<MyDrawerPage> {
-  String lng="";
+  String? lng="";
 
   @override
   void initState() {
@@ -57,21 +57,21 @@ class _MyDrawerPageState extends State<MyDrawerPage> {
               children: <Widget>[
                 ListTile(
                   leading: Icon(Icons.center_focus_weak,color: MyColors.redColor,),
-                  title: Text(AppLocalizations.of(context).translate("fromqr")),
+                  title: Text(AppLocalizations.of(context)!.translate("fromqr")!),
                   onTap: () {
                     goToTabBarItems(0);
                   },
                 ),
                 ListTile(
                   leading: Icon(Icons.photo_camera,color: MyColors.purpleColor,),
-                  title: Text(AppLocalizations.of(context).translate("toqr")),
+                  title: Text(AppLocalizations.of(context)!.translate("toqr")!),
                   onTap: () {
                     goToTabBarItems(1);
                   },
                 ),
                 ListTile(
                   leading: Icon(Icons.history,color: MyColors.greenColor,),
-                  title: Text(AppLocalizations.of(context).translate("history")),
+                  title: Text(AppLocalizations.of(context)!.translate("history")!),
                   onTap: () {
                     goToTabBarItems(2);
                   },
@@ -82,21 +82,21 @@ class _MyDrawerPageState extends State<MyDrawerPage> {
           Divider(color: Colors.grey,),
           ListTile(
             leading: Icon(MyqrApp.t_shirt,color:MyColors.orangeColor),
-            title: Text(AppLocalizations.of(context).translate("changetheme")),
+            title: Text(AppLocalizations.of(context)!.translate("changetheme")!),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>ThemeChangeScreen()));
             },
           ),
           ListTile(
             leading: IconButton(icon: new Image.asset(lng=="en"?'icons/flags/png/us.png':'icons/flags/png/mm.png', package: 'country_icons'),onPressed: (){},),
-            title: Text(AppLocalizations.of(context).translate("changelanguage")),
+            title: Text(AppLocalizations.of(context)!.translate("changelanguage")!),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>ChangeLanguageScreen(lng: lng,)));
             },
           ),
           ListTile(
             leading: Icon(MyqrApp.info_outline,color: MyColors.blueGreyColor,),
-            title: Text(AppLocalizations.of(context).translate("aboutus")),
+            title: Text(AppLocalizations.of(context)!.translate("aboutus")!),
             onTap: () {},
           ),
         ],

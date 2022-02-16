@@ -39,7 +39,7 @@ class MyqrApp {
   MyqrApp._();
 
   static const _kFontFam = 'MyqrApp';
-  static const _kFontPkg = null;
+  static const dynamic _kFontPkg = null;
 
   static const IconData t_shirt = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData info_outline = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);

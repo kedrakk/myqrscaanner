@@ -20,7 +20,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(AppLocalizations.of(context).translate("welcome")),
+        child: Text(AppLocalizations.of(context)!.translate("welcome")!),
       ),
     );
   }

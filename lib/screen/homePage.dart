@@ -13,14 +13,14 @@ import 'package:myqrscanner/utils/providers/appTheme.dart';
 import 'package:provider/provider.dart';
 
 class HomePageScreen extends StatefulWidget {
-  final int selectedPage;
+  final int? selectedPage;
   HomePageScreen({this.selectedPage});
   @override
   _HomePageScreenState createState() => _HomePageScreenState();
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
-  Icon actionIcon;
+  late Icon actionIcon;
 
   @override
   void initState() {
@@ -34,7 +34,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
     actionIcon=Icon(provider.getTheme==MyThemeData.ligthTheme()?MyqrApp.sun:MyqrApp.moon);
     
     return DefaultTabController(
-      initialIndex: widget.selectedPage==null?0:widget.selectedPage,
+      initialIndex: widget.selectedPage==null?0:widget.selectedPage!,
       length: 3,
       child: Scaffold(
         drawer: MyDrawerPage(),
@@ -53,13 +53,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
             tabs: [
               Container(
                 padding: EdgeInsets.only(bottom: 10),
-                child: Text(AppLocalizations.of(context).translate("fromqr"))),
+                child: Text(AppLocalizations.of(context)!.translate("fromqr")!)),
               Container(
                 padding: EdgeInsets.only(bottom: 10),
-                child: Text(AppLocalizations.of(context).translate("toqr"))),
+                child: Text(AppLocalizations.of(context)!.translate("toqr")!)),
               Container(
                 padding: EdgeInsets.only(bottom: 10),
-                child: Text(AppLocalizations.of(context).translate("history"))),
+                child: Text(AppLocalizations.of(context)!.translate("history")!)),
             ]
           ),
         ),

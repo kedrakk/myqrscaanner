@@ -11,7 +11,7 @@ class ThemeChangeScreen extends StatefulWidget {
 }
 
 class _ThemeChangeScreenState extends State<ThemeChangeScreen> {
-  String curtheme="";
+  String? curtheme="";
 
   @override
   void initState() {

@@ -17,9 +17,9 @@ class QrHistoryAdapter extends TypeAdapter<QrHistory> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return QrHistory()
-      ..id = fields[0] as int
-      ..name = fields[1] as String
-      ..processingDate = fields[2] as String;
+      ..id = fields[0] as int?
+      ..name = fields[1] as String?
+      ..processingDate = fields[2] as String?;
   }
 
   @override
