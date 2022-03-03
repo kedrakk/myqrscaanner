@@ -21,36 +21,37 @@ class QrHistory {
   String? processingDate;
 }
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var path = (await getApplicationDocumentsDirectory()).path;
-    Hive
+  Hive
     ..init(path)
     ..registerAdapter(QrHistoryAdapter());
-    
+
   AppLanguage appLanguage = AppLanguage();
   await appLanguage.fetchLocale();
-  QRAppTheme qrAppTheme=QRAppTheme();
+  QRAppTheme qrAppTheme = QRAppTheme();
   await qrAppTheme.fetchTheme();
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider<AppLanguage>(create: (_) => AppLanguage(),),
-        ChangeNotifierProvider<QRAppTheme>(create: (_) => QRAppTheme(),),
-      ],
-      child:Phoenix(child: MyApp()) ,
-    )
-  );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<AppLanguage>(
+        create: (_) => AppLanguage(),
+      ),
+      ChangeNotifierProvider<QRAppTheme>(
+        create: (_) => QRAppTheme(),
+      ),
+    ],
+    child: Phoenix(child: MyApp()),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<QRAppTheme>(context);
+    var provider = Provider.of<QRAppTheme>(context);
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
@@ -60,9 +61,8 @@ class MyApp extends StatelessWidget {
           Locale('en', 'US'),
           Locale('mm', 'MM'),
         ],
-      title: 'Flutter Demo',
-      theme: provider.getTheme,
-      home:MySplashScreen()
-    );
+        title: 'Flutter Demo',
+        theme: provider.getTheme,
+        home: MySplashScreen());
   }
 }
